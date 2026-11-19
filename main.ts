@@ -40,7 +40,7 @@ if (typeof post !== 'object' || post === null || typeof (post as { url?: unknown
   process.exit(1);
 }
 const url = (post as { url: string }).url;
-if (!/^https:\/\/(www\.|mobile\.)?(x\.com|twitter\.com)\/(status|statuses|i\/web\/status)\/\d+$/.test(url)) {
+if (!/^https:\/\/(www\.|mobile\.)?(x\.com|twitter\.com)\/(?:[^\/]+\/(?:status|statuses)|i\/web\/status)\/\d+$/.test(url)) {
   console.error(`POST.json url is not an X post address: ${url}`);
   process.exit(1);
 }
